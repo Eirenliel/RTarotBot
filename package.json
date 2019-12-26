@@ -1,0 +1,46 @@
+{
+  "name": "rtarotbot",
+  "version": "0.0.0",
+  "description": "r/Tarot bot for Telegram and Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && DEBUG=rtarotbot:* node dist/index.js",
+    "start-windows": "npm run build && set DEBUG=rtarotbot:* && node dist/index.js",
+    "build": "babel src -d dist",
+    "lint": "eslint src",
+    "pre-commit": "(npm run lint) || exit 1",
+    "hooks": "(echo '#!/bin/sh' && echo 'npm run pre-commit') > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit",
+    "hooks-windows": "(echo #!/bin/sh && echo npm run pre-commit) > .git/hooks/pre-commit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eirenliel/RTarotBot.git"
+  },
+  "keywords": [
+    "tarot",
+    "bot",
+    "telegram",
+    "discord",
+    "reddit"
+  ],
+  "author": "Eiren Rain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eirenliel/RTarotBot/issues"
+  },
+  "homepage": "https://github.com/Eirenliel/RTarotBot#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "debug": "^4.1.1",
+    "mongoose": "^5.8.3",
+    "telegraf": "^3.34.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@slimonitor/eslint-config": "git+https://github.com/Slimonitor/eslint-config.git",
+    "eslint": "^5.12.0"
+  }
+}
